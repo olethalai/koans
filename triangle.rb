@@ -15,6 +15,23 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+  if ((a <= 0) | (b <= 0) | (c <= 0))
+  	  raise TriangleError, "sides must be more than 0"
+  end
+  if ((a + b > c) && (a + c > b) && (c + b > a))
+  	  	  
+  	if((a == b) and (b == c))
+  	  	return :equilateral
+  	else
+  	  	if ((a == b) | (b == c) | (a == c))
+  	  	  	return :isosceles
+  	  	else
+  	  	  	return :scalene
+  	  	end
+  	end
+  else
+  	  raise TriangleError, "invalid triangle side lengths"
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
